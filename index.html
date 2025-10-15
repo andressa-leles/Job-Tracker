@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Job Tracker</h1>
+        <p>Acompanhe suas candidaturas de forma simples e organizada</p>
+    </header>
+
+    <main>
+        <section class="nova-vaga">
+            <h2>Adicionar Nova Vaga</h2>
+            <form id="form-vaga">
+
+                <div class="campo">
+                    <label for="empresa">Empresa:</label>
+                    <input type="text" id="empresa" required>
+                </div>
+
+                 <div class="campo">
+                    <label for="cargo">Cargo:</label>
+                    <input type="text" id="cargo" required>
+                </div>
+
+                 <div class="campo">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" required>
+                </div>
+
+                
+                <div class="campo">
+                    <label for="status">Status:</label>
+                    <select id="status" required>
+                        <option value="pendente">Pendente</option>
+                        <option value="entrevista">Entrevista</option>
+                        <option value="em andamento">Em andamento</option>
+                        <option value="recusado">Recusado</option>
+                        <option value="contratado">Contratado</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="link">Link da Vaga (opcional):</label>
+                    <input type="url" id="link" placeholder="https://">
+                </div>
+
+                <button type="submit" >Adicionar</button>
+            </form>
+        </section>
+
+        <section class="lista-vagas">
+            <h2>Minhas candidaturas</h2>
+            <div id="vagas-container">
+                <p>Nenhuma vaga adicionada.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Andressa Leles</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
