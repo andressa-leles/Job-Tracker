@@ -46,6 +46,11 @@ function exibirVagas() {
   const listaVagas = document.getElementById("vagas-container");
   listaVagas.innerHTML = "";
 
+   if (vagas.length === 0) {
+    listaVagas.innerHTML = "<p>Nenhuma vaga adicionada.</p>";
+    return; 
+  }
+
   vagas.forEach(function (vaga, index) {
     const divVaga = document.createElement("div");
     divVaga.classList.add("vaga-card");
