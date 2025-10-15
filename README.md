@@ -49,6 +49,18 @@ https://github.com/user-attachments/assets/c1e58072-0995-4ae3-be36-38af8261bea8
 
 ---
 
-## 🗂️ Estrutura de pastas
+💡 Melhorias futuras
+
+🔹 Adicionar campo de observações sobre cada vaga
+🔹 Filtro por status
+🔹 Integração com banco de dados (versão futura)
+
+✨ Desenvolvido por
+
+Andressa Leles Serafim
+📍 São Paulo/SP
+📧 leles.andressa@gmail.com
+
+🔗 LinkedIn [www.linkedin.com/in/andressa-leles]
 
 
