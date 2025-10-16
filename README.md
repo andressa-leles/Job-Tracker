@@ -17,19 +17,9 @@ Você pode adicionar, editar e excluir vagas, além de salvar todas as informaç
 ## 🖼️ Demonstração
 
 ### 📸 **Print do projeto**
-<img src="./prints/formulario.png" width="600" alt="Print do projeto">
-<img src="./prints/vagas-adicionadas.png" width="600" alt="Print do projeto">
-
-### 🎥 **Vídeo mostrando o funcionamento**
-📱 Assista ao vídeo demonstrativo [clicando aqui](
-
-https://github.com/user-attachments/assets/c1e58072-0995-4ae3-be36-38af8261bea8
-
-)  
-
-
----
-
+<img src="./prints/formulario.jpeg" width="600" alt="Print do projeto">
+<img src="./prints/vagas-adicionadas.jpeg" width="600" alt="Print do projeto">
+ 
 ## ⚙️ Funcionalidades
 
 ✅ Adicionar novas vagas  
