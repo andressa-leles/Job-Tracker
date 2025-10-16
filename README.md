@@ -7,45 +7,60 @@
 
 ---
 
-## 🎯 Descrição
-Projeto de gerenciamento de vagas de emprego, feito com **HTML, CSS e JavaScript**, permitindo:
+# 💼 Controle de Candidaturas
 
-- Adicionar novas vagas  
-- Editar vagas existentes  
-- Deletar vagas  
-- Salvar automaticamente no **Local Storage**, mantendo os dados mesmo após fechar o navegador  
-- Diferenciar visualmente os cards pelo **status da vaga** (pendente, entrevista, em andamento, recusado, contratado)  
+Um projeto simples e funcional para **organizar candidaturas de vagas de emprego**.  
+Você pode adicionar, editar e excluir vagas, além de salvar todas as informações automaticamente no **LocalStorage**, garantindo que seus dados permaneçam mesmo após fechar a página.
 
 ---
 
-## ⚡ Funcionalidades
-1. Formulário para adicionar vaga: empresa, cargo, data, status e link da vaga.  
-2. Cards dinâmicos exibindo cada vaga cadastrada.  
-3. Botões para **editar** e **deletar** cada vaga individualmente.  
-4. Cards coloridos conforme o status da vaga.  
-5. Persistência dos dados usando **Local Storage**.  
+## 🖼️ Demonstração
+
+### 📸 **Print do projeto**
+<img src="./prints/formulario.png" width="600" alt="Print do projeto">
+<img src="./prints/vagas-adicionadas.png" width="600" alt="Print do projeto">
+
+### 🎥 **Vídeo mostrando o funcionamento**
+📱 Assista ao vídeo demonstrativo [clicando aqui](
+
+https://github.com/user-attachments/assets/c1e58072-0995-4ae3-be36-38af8261bea8
+
+)  
+
 
 ---
 
-## 🖼️ Prints do projeto
-<p align="center">
-  <img src="<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/125f3e37-cd17-4248-b1e8-e2d142139574" />
-" alt="Tela principal" width="400"/>
-  <img src="<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/7098b97e-8c06-4861-ac7f-523d52295d10" />
-" alt="Adicionar vaga" width="400"/>
-</p>
+## ⚙️ Funcionalidades
+
+✅ Adicionar novas vagas  
+✅ Editar informações de uma candidatura  
+✅ Excluir vagas da lista  
+✅ Cores automáticas de acordo com o status  
+✅ Armazenamento no **LocalStorage** (não perde os dados ao atualizar)  
+✅ Interface simples e intuitiva
 
 ---
 
-## 🛠️ Tecnologias usadas
-- **HTML5**: Estrutura do site  
-- **CSS3**: Estilização e responsividade  
-- **JavaScript**: Interatividade e manipulação de DOM  
-- **Local Storage**: Persistência de dados  
+## 🧠 Tecnologias usadas
+
+- **HTML5**
+- **CSS3**
+- **JavaScript (DOM + LocalStorage)**
 
 ---
 
-## 🚀 Como usar
-1. Clone este repositório:
-```bash
-git clone https://github.com/SEU_USUARIO/NOME_DO_REPO.git
+💡 Melhorias futuras
+
+🔹 Adicionar campo de observações sobre cada vaga
+🔹 Filtro por status
+🔹 Integração com banco de dados (versão futura)
+
+✨ Desenvolvido por
+
+Andressa Leles Serafim
+📍 São Paulo/SP
+📧 leles.andressa@gmail.com
+
+🔗 LinkedIn [www.linkedin.com/in/andressa-leles]
+
+
