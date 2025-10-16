@@ -286,3 +286,59 @@ footer {
     color: var(--text-light);
     font-size: 0.9em;
 }
+
+/*CONTAINER DE ALERTA*/
+
+#alertas-container{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+/*alerta individual*/
+
+.alerta{
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    opacity: 0; /* Começa invisível, vai animar */
+    transform: translateX(100%);/* Começa fora da tela */
+    transition: opacity 0.5s, transform 0.5s; /* Animação suave */
+    min-width: 250px;
+}
+
+.alerta.sucesso{
+    background-color: var(--status-contratado);
+}
+
+.alerta.erro {
+    background-color: var(--status-recusado);
+}
+
+.alerta.informacao {
+    background-color: var(--status-andamento);
+}
+
+.alerta.mostrar {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 700px) {
+    #alertas-container {
+        top: 10px;
+        right: 10px;
+    }
+
+    .alerta {
+        min-width: 200px;
+        padding: 12px 16px;
+        font-size: 0.9em;
+    }
+}

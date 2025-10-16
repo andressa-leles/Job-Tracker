@@ -1,4 +1,5 @@
 let vagas = [];
+let vagaEmEdicao = null;
 
 const form = document.getElementById("form-vaga");
 const vagasContainer = document.getElementById("vagas-container");
@@ -7,7 +8,8 @@ const cargo = document.getElementById("cargo");
 const data = document.getElementById("data");
 const status = document.getElementById("status");
 const link = document.getElementById("link");
-const filtroStatus = document.getElementById("filtro-status")
+const filtroStatus = document.getElementById("filtro-status");
+const alertasContainer = document.getElementById("alertas-container");
 
 const vagasSalvas = localStorage.getItem("vagas");
 if (vagasSalvas) {
@@ -15,16 +17,37 @@ if (vagasSalvas) {
   exibirVagas();
 }
 
-filtroStatus.addEventListener("change", function(){
-  const statusSelecionado = filtroStatus.value
+function mostrarAlerta(mensagem, tipo) {
+  const divAlerta = document.createElement("div");
+
+  divAlerta.classList.add("alerta", tipo);
+  divAlerta.textContent = mensagem;
+
+  alertasContainer.appendChild(divAlerta)
+  divAlerta.classList.add("mostrar")
+
+ setTimeout(() =>{
+    divAlerta.classList.remove('mostrar')
+
+    setTimeout(()=>{
+      divAlerta.remove()
+    }, 300)
+ }, 3000)
+}
+
+
+filtroStatus.addEventListener("change", function () {
+  const statusSelecionado = filtroStatus.value;
 
   if (statusSelecionado === "") {
-    return exibirVagas()
+    return exibirVagas();
   }
 
-  const vagasFiltradas = vagas.filter(vaga => vaga.status === statusSelecionado)
-  exibirVagas(vagasFiltradas)
-})
+  const vagasFiltradas = vagas.filter(
+    (vaga) => vaga.status === statusSelecionado
+  );
+  exibirVagas(vagasFiltradas);
+});
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -43,7 +66,14 @@ form.addEventListener("submit", function (event) {
     link: valorLink,
   };
 
-  vagas.push(vaga);
+  if(vagaEmEdicao !== null){
+    vagas[vagaEmEdicao] = vaga
+    mostrarAlerta("Vaga editada com sucesso!", "informacao");
+    vagaEmEdicao = null;
+  } else {
+    vagas.push(vaga)
+    mostrarAlerta("Vaga adicionada com sucesso!", "sucesso");
+  }
   localStorage.setItem("vagas", JSON.stringify(vagas));
   exibirVagas();
 
@@ -52,15 +82,16 @@ form.addEventListener("submit", function (event) {
   data.value = "";
   status.value = "";
   link.value = "";
+
 });
 
 function exibirVagas(lista = vagas) {
   const listaVagas = document.getElementById("vagas-container");
   listaVagas.innerHTML = "";
 
-   if (lista.length === 0) {
+  if (lista.length === 0) {
     listaVagas.innerHTML = "<p>Nenhuma vaga adicionada.</p>";
-    return; 
+    return;
   }
 
   lista.forEach(function (vaga, index) {
@@ -107,6 +138,7 @@ function exibirVagas(lista = vagas) {
       vagas.splice(index, 1);
       localStorage.setItem("vagas", JSON.stringify(vagas));
       exibirVagas();
+      mostrarAlerta("Vaga deletada com sucesso!", "erro");
     });
 
     buttonEditar.addEventListener("click", function () {
@@ -116,6 +148,7 @@ function exibirVagas(lista = vagas) {
       status.value = vaga.status;
       link.value = vaga.link;
 
+      vagaEmEdicao = index;
 
       vagas.splice(index, 1);
       localStorage.setItem("vagas", JSON.stringify(vagas));
