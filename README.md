@@ -17,8 +17,8 @@ Você pode adicionar, editar e excluir vagas, além de salvar todas as informaç
 ## 🖼️ Demonstração
 
 ### 📸 **Print do projeto**
-<img src="./prints/formulario.png" width="600" alt="Print do projeto">
-<img src="./prints/vagas-adicionadas.png" width="600" alt="Print do projeto">
+<img src="./prints/formulario.jpeg" width="600" alt="Print do projeto">
+<img src="./prints/vagas-adicionadas.jpeg" width="600" alt="Print do projeto">
 
 ### 🎥 **Vídeo mostrando o funcionamento**
 📱 Assista ao vídeo demonstrativo [clicando aqui](
