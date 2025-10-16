@@ -7,12 +7,24 @@ const cargo = document.getElementById("cargo");
 const data = document.getElementById("data");
 const status = document.getElementById("status");
 const link = document.getElementById("link");
+const filtroStatus = document.getElementById("filtro-status")
 
 const vagasSalvas = localStorage.getItem("vagas");
 if (vagasSalvas) {
   vagas = JSON.parse(vagasSalvas);
   exibirVagas();
 }
+
+filtroStatus.addEventListener("change", function(){
+  const statusSelecionado = filtroStatus.value
+
+  if (statusSelecionado === "") {
+    return exibirVagas()
+  }
+
+  const vagasFiltradas = vagas.filter(vaga => vaga.status === statusSelecionado)
+  exibirVagas(vagasFiltradas)
+})
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -42,16 +54,16 @@ form.addEventListener("submit", function (event) {
   link.value = "";
 });
 
-function exibirVagas() {
+function exibirVagas(lista = vagas) {
   const listaVagas = document.getElementById("vagas-container");
   listaVagas.innerHTML = "";
 
-   if (vagas.length === 0) {
+   if (lista.length === 0) {
     listaVagas.innerHTML = "<p>Nenhuma vaga adicionada.</p>";
     return; 
   }
 
-  vagas.forEach(function (vaga, index) {
+  lista.forEach(function (vaga, index) {
     const divVaga = document.createElement("div");
     divVaga.classList.add("vaga-card");
 
