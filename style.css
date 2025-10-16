@@ -1,51 +1,80 @@
+/* 1. VARIÁVEIS CSS (Para fácil manutenção) */
+:root {
+    /* Cores Institucionais */
+    --primary-blue: #0A3D62;   /* Azul Marinho para Header, Destaques */
+    --secondary-green: #28A745; /* Verde Sucesso/Contratado */
+    --text-dark: #333333;      /* Texto principal */
+    --text-light: #6C757D;     /* Texto secundário/Footer */
+    --background-light: #F8F9FA; /* Fundo geral muito claro */
+    --card-background: #FFFFFF; /* Fundo dos cards e main */
+    --border-subtle: #CED4DA;   /* Borda sutil de inputs */
+
+    /* Cores de Status (Mais profissionais e menos vibrantes no fundo) */
+    --status-pendente: #FFC107;      /* Amarelo/Aviso */
+    --status-entrevista: #6F42C1;    /* Roxo/Interação Forte */
+    --status-andamento: #007BFF;     /* Azul/Processo ativo */
+    --status-recusado: #DC3545;      /* Vermelho/Perigo */
+    --status-contratado: var(--secondary-green); /* Verde/Sucesso */
+}
+
+/* 2. RESET E TIPOGRAFIA */
 * {
-    margin:0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-body{
-    background-color: #E3CFA6;
-    color: #333;
+body {
+    background-color: var(--background-light); /* Fundo branco acinzentado */
+    color: var(--text-dark);
     line-height: 1.6;
     padding: 20px;
 }
 
+/* 3. HEADER (CABEÇALHO) */
 header {
     text-align: center;
-    background-color: #A3D9A5;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    background-color: var(--primary-blue); /* Azul escuro */
+    color: #FFFFFF; /* Texto branco */
+    padding: 25px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    /* Sombra para destaque */
+    box-shadow: 0 4px 10px rgba(10, 61, 98, 0.2);
 }
 
-header h1{
+header h1 {
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
+/* 4. CONTAINER PRINCIPAL */
 main {
-    max-width: 800px;
+    max-width: 900px; /* Aumentado levemente para mais espaço */
     margin: 0 auto;
-    background: #fff;
+    background: var(--card-background);
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-
+    padding: 30px; /* Mais espaçamento interno */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Sombra mais destacada */
 }
 
 section {
     margin-bottom: 30px;
 }
 
-h2{
-    margin-bottom: 10px;
-    color: #2d4739;
+h2 {
+    margin-bottom: 15px;
+    color: var(--primary-blue);
+    font-weight: 600;
+    border-bottom: 2px solid #EEE; /* Linha de separação sutil */
+    padding-bottom: 5px;
 }
 
-form{
+/* 5. FORMULÁRIO E INPUTS */
+form {
     display: grid;
-    gap: 15px;
+    gap: 20px; /* Mais espaço entre os campos */
 }
 
 .campo {
@@ -55,131 +84,167 @@ form{
 
 label {
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+    font-size: 0.95em;
 }
 
 input, select {
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    border: 1px solid var(--border-subtle);
     border-radius: 6px;
+    /* Efeito ao focar */
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+input:focus, select:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.2); /* Borda de foco sutil */
+}
+
+/* 6. BOTÃO PRINCIPAL (Adicionar) */
+.btn-adicionar-vaga { /* Adicione uma classe específica no seu HTML se puder */
+    background-color: var(--primary-blue);
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-adicionar-vaga:hover {
+    background-color: #082A43; /* Azul mais escuro no hover */
+}
+
+/* Reset para o botão genérico (se não for usado) */
 button {
-    background-color: #A3D9A5;
-    color: #2d4739;
+    background-color: var(--primary-blue);
+    color: #fff;
     padding: 12px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s;
 }
 
-button:hover {
-    background-color: #8ccf90;
-}
-
+/* 7. CARDS DE CANDIDATURAS */
 #vagas-container {
-    margin-top: 10px;
-    background: #f9f9f9;
-    padding: 15px;
+    margin-top: 20px;
+    background: var(--card-background); /* Fundo branco */
+    padding: 0; /* Removido padding, será no card */
     border-radius: 8px;
     min-height: 100px;
 }
 
-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #555;
-}
-
-.vaga-card{
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1;);
+.vaga-card {
+    /* Removendo a borda de 1px e a cor de fundo sólida */
+    border: none;
+    border-radius: 8px;
+    padding: 20px; /* Mais padding */
+    margin-bottom: 20px; /* Mais margin */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Sombra mais nítida */
     transition: transform 0.2s, box-shadow 0.2s;
+    background-color: var(--card-background); /* Fundo branco padrão */
+    /* NOVA REGRA: Borda colorida à esquerda para status */
+    border-left: 6px solid #CCC; 
 }
 
 .vaga-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.vaga-card p {
+    margin-bottom: 5px;
 }
 
 .vaga-card p strong {
     font-weight: 600;
-    color: #2d4739;
+    color: var(--text-dark);
 }
 
 .vaga-card a {
-    color: #a3d9a5;
+    color: var(--primary-blue); /* Link na cor principal */
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.2s;
 }
 
-.vaga-card a:hover{
+.vaga-card a:hover {
+    color: var(--primary-blue);
     text-decoration: underline;
 }
 
-
-/* Container dos botões dentro do card */
-
-.botoes-card{
+/* 8. BOTÕES DE AÇÃO (EDITAR/DELETAR) */
+.botoes-card {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 15px; /* Mais espaço entre os botões */
+    margin-top: 15px;
 }
 
 .btn-editar {
-    background-color: #A3D9A5; 
-    color: #2d4739;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 12px;
+    /* Estilo de botão "outline" */
+    background-color: transparent; 
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    border-radius: 4px;
+    padding: 8px 15px;
     cursor: pointer;
     font-weight: 600;
-    transition: background 0.3s;
+    transition: all 0.2s;
 }
 
-.btn-editar:hover{
-    background-color: #8ccf90;
-}
-
-.btn-deletar{
-    background-color: #e07a5f;
+.btn-editar:hover {
+    background-color: var(--primary-blue);
     color: #fff;
-    padding: 8px 12px;
+}
+
+.btn-deletar {
+    background-color: var(--status-recusado); /* Vermelho */
+    color: #fff;
+    padding: 8px 15px;
     font-weight: 600;
+    border: none;
+    border-radius: 4px;
     transition: background 0.3s;
 }
 
-.btn-deletar:hover{
-    background-color: #d45c44;
+.btn-deletar:hover {
+    background-color: #B02A37;
 }
 
-/*COLORIR CARDS POR STATUS DE VAGA*/
+/* 9. DESTAQUE DO STATUS (Usando Borda Lateral) */
 
-.vaga-card.status-pendente{
-    background-color: #fff3cd;
-
+/* Removidas as cores de fundo sólidas e substituídas por bordas */
+.vaga-card.status-pendente {
+    border-left-color: var(--status-pendente); /* Amarelo */
 }
 
-.vaga-card.status-entrevista{
-    background-color: #cce5ff;
-
+.vaga-card.status-entrevista {
+    border-left-color: var(--status-entrevista); /* Roxo */
 }
 
-.vaga-card.status-em-andamento{
-    background-color: #d1ecf1;
-
+.vaga-card.status-em-andamento {
+    border-left-color: var(--status-andamento); /* Azul */
 }
 
 .vaga-card.status-recusado {
-    background-color: #f8d7da;
-
+    border-left-color: var(--status-recusado); /* Vermelho */
 }
 
-.vaga-card.status-contratado{
-    background-color: #d4edda;
+.vaga-card.status-contratado {
+    border-left-color: var(--status-contratado); /* Verde */
+}
+
+/* 10. FOOTER */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--text-light);
+    font-size: 0.9em;
 }
