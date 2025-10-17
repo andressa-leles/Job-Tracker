@@ -165,6 +165,8 @@ function exibirVagas(lista = vagas) {
 
       vagaEmEdicao = index;
 
+      form.scrollIntoView({behavior: "smooth", block: "start"})
+
     });
   });
 }
