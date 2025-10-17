@@ -165,9 +165,6 @@ function exibirVagas(lista = vagas) {
 
       vagaEmEdicao = index;
 
-      vagas.splice(index, 1);
-      localStorage.setItem("vagas", JSON.stringify(vagas));
-      exibirVagas();
     });
   });
 }
