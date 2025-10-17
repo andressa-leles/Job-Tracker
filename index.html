@@ -1,88 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>job Tracker</title>
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
-    <header>
-        <h1>Job Tracker</h1>
-        <p>Acompanhe suas candidaturas de forma simples e organizada</p>
-    </header>
-
-    <main>
-        <section class="nova-vaga">
-            <h2>Adicionar Nova Vaga</h2>
-            <form id="form-vaga">
-
-                <div class="campo">
-                    <label for="empresa">Empresa:</label>
-                    <input type="text" id="empresa" required>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>job Tracker</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Job Tracker</h1>
+            <p>Acompanhe suas candidaturas de forma simples e organizada</p>
+        </header>
+        <main>
+            <section class="nova-vaga">
+                <h2>Adicionar Nova Vaga</h2>
+                <form id="form-vaga">
+                    <div class="campo">
+                        <label for="empresa">Empresa:</label>
+                        <input type="text" id="empresa" required>
+                    </div>
+                    <div class="campo">
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" id="cargo" required>
+                    </div>
+                    <div class="campo">
+                        <label for="data">Data:</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div class="campo">
+                        <label for="status">Status:</label>
+                        <select id="status" required>
+                            <option value="pendente">Pendente</option>
+                            <option value="entrevista">Entrevista</option>
+                            <option value="em andamento">Em andamento</option>
+                            <option value="recusado">Recusado</option>
+                            <option value="contratado">Contratado</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="link">Link da Vaga (opcional):</label>
+                        <input type="url" id="link" placeholder="https://">
+                    </div>
+                    <button type="submit" class="btn-adicionar-vaga">Adicionar</button>
+                </form>
+            </section>
+            <section class="filtro-vagas">
+                <label for="filtro-status">Filtrar por status:</label>
+                <select id="filtro-status">
+                    <option value="">Todos</option>
+                    <option value="pendente">Pendente</option>
+                    <option value="entrevista">Entrevista</option>
+                    <option value="em andamento">Em andamento</option>
+                    <option value="recusado">Recusado</option>
+                    <option value="contratado">Contratado</option>
+                </select>
+            </section>
+            <section class="lista-vagas">
+                <h2>Minhas candidaturas</h2>
+                <div id="vagas-container">
+                    <p>Nenhuma vaga adicionada.</p>
                 </div>
-
-                 <div class="campo">
-                    <label for="cargo">Cargo:</label>
-                    <input type="text" id="cargo" required>
+            </section>
+        </main>
+        <footer>
+            <p>Desenvolvido por Andressa Leles</p>
+        </footer>
+        <div id="alertas-container"></div>
+        <div id="modal-confirmacao" class="modal" style="display: none;">
+            <div class="modal-content">
+                <p>Tem certeza que deseja deletar?</p>
+                <div class="modal-actions">
+                    <button id="confirmar" class="modal-button confirm">Confirmar</button>
+                    <button id="cancelar" class="modal-button cancel">Cancelar</button>
                 </div>
-
-                 <div class="campo">
-                    <label for="data">Data:</label>
-                    <input type="date" id="data" required>
-                </div>
-
-                
-                <div class="campo">
-                    <label for="status">Status:</label>
-                    <select id="status" required>
-                        <option value="pendente">Pendente</option>
-                        <option value="entrevista">Entrevista</option>
-                        <option value="em andamento">Em andamento</option>
-                        <option value="recusado">Recusado</option>
-                        <option value="contratado">Contratado</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="link">Link da Vaga (opcional):</label>
-                    <input type="url" id="link" placeholder="https://">
-                </div>
-
-                <button type="submit" class="btn-adicionar-vaga" >Adicionar</button>
-            </form>
-        </section>
-
-        <section class="filtro-vagas">
-            <label for="filtro-status">Filtrar por status:</label>
-            <select id="filtro-status">
-                <option value="">Todos</option>
-                <option value="pendente">Pendente</option>
-                <option value="entrevista">Entrevista</option>
-                <option value="em andamento">Em andamento</option>
-                <option value="recusado">Recusado</option>
-                <option value="contratado">Contratado</option>
-            </select>
-        </section>
-
-        <section class="lista-vagas">
-            <h2>Minhas candidaturas</h2>
-            <div id="vagas-container">
-                <p>Nenhuma vaga adicionada.</p>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>Desenvolvido por Andressa Leles</p>
-    </footer>
-
-    <div id="alertas-container"></div>
-    
-    <script src="./script.js"></script>
-</body>
+        </div>
+        <script src="./script.js"></script>
+    </body>
 </html>

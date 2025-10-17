@@ -23,18 +23,17 @@ function mostrarAlerta(mensagem, tipo) {
   divAlerta.classList.add("alerta", tipo);
   divAlerta.textContent = mensagem;
 
-  alertasContainer.appendChild(divAlerta)
-  divAlerta.classList.add("mostrar")
+  alertasContainer.appendChild(divAlerta);
+  divAlerta.classList.add("mostrar");
 
- setTimeout(() =>{
-    divAlerta.classList.remove('mostrar')
+  setTimeout(() => {
+    divAlerta.classList.remove("mostrar");
 
-    setTimeout(()=>{
-      divAlerta.remove()
-    }, 300)
- }, 3000)
+    setTimeout(() => {
+      divAlerta.remove();
+    }, 300);
+  }, 3000);
 }
-
 
 filtroStatus.addEventListener("change", function () {
   const statusSelecionado = filtroStatus.value;
@@ -66,12 +65,12 @@ form.addEventListener("submit", function (event) {
     link: valorLink,
   };
 
-  if(vagaEmEdicao !== null){
-    vagas[vagaEmEdicao] = vaga
+  if (vagaEmEdicao !== null) {
+    vagas[vagaEmEdicao] = vaga;
     mostrarAlerta("Vaga editada com sucesso!", "informacao");
     vagaEmEdicao = null;
   } else {
-    vagas.push(vaga)
+    vagas.push(vaga);
     mostrarAlerta("Vaga adicionada com sucesso!", "sucesso");
   }
   localStorage.setItem("vagas", JSON.stringify(vagas));
@@ -82,7 +81,6 @@ form.addEventListener("submit", function (event) {
   data.value = "";
   status.value = "";
   link.value = "";
-
 });
 
 function exibirVagas(lista = vagas) {
@@ -135,11 +133,28 @@ function exibirVagas(lista = vagas) {
     listaVagas.appendChild(divVaga);
 
     buttonDeletar.addEventListener("click", function () {
-      vagas.splice(index, 1);
-      localStorage.setItem("vagas", JSON.stringify(vagas));
-      exibirVagas();
-      mostrarAlerta("Vaga deletada com sucesso!", "erro");
+      abrirModalConfirmacao(index);
     });
+
+    function abrirModalConfirmacao(index) {
+      const modal = document.getElementById("modal-confirmacao");
+      modal.style.display = "flex";
+
+      const btnConfirmar = document.getElementById("confirmar");
+      const btnCancelar = document.getElementById("cancelar");
+
+      btnConfirmar.onclick = function () {
+        vagas.splice(index, 1);
+        localStorage.setItem("vagas", JSON.stringify(vagas));
+        exibirVagas();
+        mostrarAlerta("Vaga deletada com sucesso!", "erro");
+        modal.style.display = "none";
+      };
+
+      btnCancelar.onclick = function(){
+        modal.style.display = "none"
+      }
+    }
 
     buttonEditar.addEventListener("click", function () {
       empresa.value = vaga.empresa;
