@@ -1,4 +1,4 @@
-# Minhas Vagas 🚀
+# Job Tracker
 
 ![status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow) 
 ![HTML](https://img.shields.io/badge/HTML5-%23E34F26?logo=html5&logoColor=white)
